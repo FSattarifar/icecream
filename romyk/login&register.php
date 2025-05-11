@@ -212,6 +212,15 @@
             const hasNumber = /\d/.test(password);
             const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
 
+            // بررسی صحت ایمیل
+            const emailRegex = /^[^\s@]+@gmail\.com$/;
+            if (!emailRegex.test(email)) {
+                responseMessage.style.color = "red";
+                responseMessage.textContent = "لطفاً یک ایمیل معتبر از Gmail وارد کنید (example@gmail.com).";
+                return;
+            }
+
+
             if (password.length < 6 || !hasUpperCase || !hasLowerCase || !hasNumber || !hasSpecialChar) {
                 responseMessage.style.color = "red";
                 responseMessage.textContent = "رمز عبور باید حداقل ۶ کاراکتر، شامل حروف بزرگ، کوچک، عدد و کاراکتر خاص باشد.";
