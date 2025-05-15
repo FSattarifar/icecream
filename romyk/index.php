@@ -40,24 +40,24 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream/romyk/contact.php">ارتباط با ما</a>
+                        <a class="nav-link" href="contact.php">ارتباط با ما</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream/romyk/about.php">درباره ما</a>
+                        <a class="nav-link" href="about.php">درباره ما</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream/romyk/blog.php">اخبار</a>
+                        <a class="nav-link" href="blog.php">اخبار</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream/romyk/services.php">سرویس ها</a>
+                        <a class="nav-link" href="services.php">سرویس ها</a>
                      </li>
 
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream/romyk/icecream.php">بستنی</a>
+                        <a class="nav-link" href="icecream.php">بستنی</a>
                      </li>
                      
                      <li class="nav-item active">
-                        <a class="nav-link" href="icecream/romyk/index.php">خانه</a>
+                        <a class="nav-link" href="index.php">خانه</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
