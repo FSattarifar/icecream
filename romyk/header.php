@@ -46,24 +46,41 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.php">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="icecream.php">Icecream</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.php">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.php">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.php">Contact Us</a>
-                        </li>
-                    </ul>
+                        <a class="nav-link" href="contact.html">ارتباط با ما</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="about.html">درباره ما</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="blog.html">اخبار</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="services.html">سرویس ها</a>
+                     </li>
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="icecream.html">بستنی</a>
+                     </li>
+                     
+                     <li class="nav-item active">
+                        <a class="nav-link" href="index.html">خانه</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="login_bt">
+                        <div class="search-box">
+                     <i class="fa fa-search"></i>
+                     <input type="text" placeholder="جستجو">
+                  </div>
+
+                  <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+                     <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                     </div>
+                    </form>
+               </div>
+            </nav>
+         </div>
+               
                     <form class="form-inline my-2 my-lg-0">
                         <div class="login_bt"><a href="login&register.php">Login <span style="color: #222222;"><i class="fa fa-user"
                                         aria-hidden="true"></i></span></a></div>
