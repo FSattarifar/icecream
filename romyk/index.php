@@ -77,8 +77,8 @@
                </div>
             </nav>
          </div>
-                   
-                 
+</div>        
+</body>
                        
                      
                     <form class="form-inline my-2 my-lg-0">
