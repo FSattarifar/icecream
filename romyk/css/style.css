@@ -332,7 +332,7 @@ button {
     position: absolute;
     background-color: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #080606;
     list-style: none;
 }
 
@@ -352,7 +352,7 @@ button {
 }
 
 .submenu a:hover {
-    background-color: #f0f0f0;
+    background-color: #fc95c4;
 }
 /*end menu */
 /* banner section start */
