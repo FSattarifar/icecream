@@ -326,6 +326,35 @@ button {
     color: #fc95c4;
 }
 /* header section end */
+/* menu */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    list-style: none;
+}
+
+.nav-item:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.submenu a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    display: block;
+}
+
+.submenu a:hover {
+    background-color: #f0f0f0;
+}
+/*end menu */
 /* banner section start */
 
 .banner_section {

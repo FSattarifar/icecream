@@ -60,6 +60,11 @@ session_start();
 
                      <li class="nav-item">
                         <a class="nav-link" href="icecream.php">بستنی</a>
+                        <ul class="submenu">
+                         <li><a href="chocolate.php">شکلاتی</a></li>
+                         <li><a href="vanilla.php">وانیلی</a></li>
+                        <li><a href="strawberry.php">توت فرنگی</a></li>
+                        </ul>
                      </li>
                      
                      <li class="nav-item active">
