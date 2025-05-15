@@ -71,11 +71,9 @@
                      <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                      </div>
                   </form>
-                 
-                 
-               </div>
             </nav>
          </div>
+</div>
         <!-- banner section start -->
         <div class="banner_section layout_padding">
             <div class="container">
