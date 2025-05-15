@@ -46,24 +46,24 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                        <a class="nav-link" href="contact.html">ارتباط با ما</a>
+                  <a class="nav-link" href="contact.php">ارتباط با ما</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="about.html">درباره ما</a>
+                        <a class="nav-link" href="about.php">درباره ما</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="blog.html">اخبار</a>
+                        <a class="nav-link" href="blog.php">اخبار</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="services.html">سرویس ها</a>
+                        <a class="nav-link" href="services.php">سرویس ها</a>
                      </li>
 
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream.html">بستنی</a>
+                        <a class="nav-link" href="icecream.php">بستنی</a>
                      </li>
                      
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">خانه</a>
+                        <a class="nav-link" href="index.php">خانه</a>
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
@@ -80,7 +80,10 @@ session_start();
                </div>
             </nav>
          </div>
-               
+                   
+                 
+                       
+                     
                     <form class="form-inline my-2 my-lg-0">
                         <div class="login_bt"><a href="login&register.php">Login <span style="color: #222222;"><i class="fa fa-user"
                                         aria-hidden="true"></i></span></a></div>
@@ -89,5 +92,7 @@ session_start();
                 </div>
             </nav>
         </div>
-    </div>
-    <!--  اینم توی صفحات بسته میشه کاریش نداشته باش برای تگ بسته body هست-->
+</div>
+</body>
+
+
