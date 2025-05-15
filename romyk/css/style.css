@@ -264,16 +264,57 @@ button {
 }
 
 
+.login_bt {
+    display: flex; /* قرار دادن همه عناصر در یک خط */
+    align-items: center; /* تنظیم هم‌ترازی */
+    gap: 15px; /* فاصله بین عناصر */
+    position: relative; /* تنظیم موقعیت برای نمایش باکس */
+}
+.search-box {
+    display: flex; /* قرار دادن آیکن و ورودی در یک خط */
+    align-items: center; /* تنظیم هم‌ترازی عمودی */
+    border: 2px solid #ccc;
+    border-radius: 50px; /* گوشه‌های گرد */
+    padding: 5px 0px 5px 0px;
+    background: transparent; /* حذف پس‌زمینه */
+    width: 200px; /* اندازه مناسب */
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    text-align:right; /* متن در سمت راست */
+    direction: rtl;
+    background: transparent; /* حذف پس‌زمینه داخلی */
+    flex: 1; /* گسترش ورودی برای پر کردن فضا */
+}
+
+.search-box i {
+    color: #666;
+    font-size: 18px;
+    margin-left: 5px; /* فاصله آیکن از متن */
+}
+
+.login_bt a {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+}
+
 
 .login_bt a {
     font-size: 18px;
     color: #222222;
-    padding: 0px 50px 0px 30px;
+    padding: 0px 5px 0px 5px;
+
+   
 }
+
 
 .login_bt a:hover {
     color: #fc95c4;
 }
+
 
 .fa.fa-search.form-control-feedback {
     font-size: 18px;
@@ -284,11 +325,7 @@ button {
     font-size: 18px;
     color: #fc95c4;
 }
-
-
 /* header section end */
-
-
 /* banner section start */
 
 .banner_section {
