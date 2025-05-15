@@ -67,7 +67,7 @@
                      <input type="text" placeholder="جستجو">
                   </div>
 
-                  <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+                  <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
                      <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                      </div>
                   </form>
