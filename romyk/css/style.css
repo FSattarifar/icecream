@@ -327,32 +327,68 @@ button {
 }
 /* header section end */
 /* menu */
+.nav-item {
+  position: relative;
+}
+
+/* تنظیمات کلی زیرمنو */
+.nav-item {
+  position: relative;
+}
+
 .submenu {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #080606;
-    list-style: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: visibility 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  min-width: 160px;
 }
 
-.nav-item:hover .submenu {
-    display: block;
-}
-
+/* آیتم‌های داخل زیرمنو */
 .submenu li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 .submenu a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-    display: block;
+  text-decoration: none;
+  text-align: right;
+  direction: rtl;
+  color: #333;
+  padding: 5px 10px;
+  display: block;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .submenu a:hover {
-    background-color: #fc95c4;
+  background-color:#fc95c4;
+  transform: scale(1.05);
+}
+
+/* باز کردن زیرمنو در حالت هاور */
+.nav-item:hover .submenu,
+.nav-item:focus-within .submenu,
+.submenu:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* اختیاری: تأخیر در بسته‌شدن زیرمنو */
+.nav-item:not(:hover):not(:focus-within) .submenu {
+  transition-delay: 0.5s;
+}
+.navbar-nav{
+    position: relative;
 }
 /*end menu */
 /* banner section start */

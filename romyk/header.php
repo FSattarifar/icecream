@@ -45,7 +45,7 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                   <a class="nav-link" href="contact.php">ارتباط با ما</a>
                      </li>
                      <li class="nav-item">
@@ -78,7 +78,7 @@ session_start();
                      <input type="text" placeholder="جستجو">
                   </div>
 
-                  <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+                  <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
                      <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                      </div>
                     </form>
