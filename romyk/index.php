@@ -40,7 +40,7 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ml-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="contact.php">ارتباط با ما</a>
+                        <a class="nav-link" href="romyk/contact.php">ارتباط با ما</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="about.php">درباره ما</a>
