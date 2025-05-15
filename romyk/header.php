@@ -84,11 +84,7 @@ session_start();
                  
                        
                      
-                    <form class="form-inline my-2 my-lg-0">
-                        <div class="login_bt"><a href="login&register.php">Login <span style="color: #222222;"><i class="fa fa-user"
-                                        aria-hidden="true"></i></span></a></div>
-                        <div class="fa fa-search form-control-feedback"></div>
-                    </form>
+                
                 </div>
             </nav>
         </div>
