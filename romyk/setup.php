@@ -7,10 +7,10 @@ try {
     die("خطا در ساخت دیتابیس: " . $e->getMessage());
 }
 
-// فراخوانی اتصال
-require_once 'db.php';
+// اتصال به دیتابیس
+$pdo->exec("USE project_db");
 
-// ساخت جدول‌ها
+// ساخت جدول‌ها و افزودن داده نمونه
 try {
     // users
     $pdo->exec("
@@ -22,6 +22,11 @@ try {
             phone VARCHAR(11)
         );
     ");
+    $pdo->exec("
+        INSERT INTO users (username, password, email, phone) VALUES
+        ('ice_lover1', 'pass123', 'ice1@example.com', '09120000001'),
+        ('sweetfan2', 'pass456', 'ice2@example.com', '09120000002');
+    ");
 
     // contacts
     $pdo->exec("
@@ -32,6 +37,11 @@ try {
             FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
         );
     ");
+    $pdo->exec("
+        INSERT INTO contacts (user_id, message) VALUES
+        (1, 'سلام، بستنی شکلاتی تخفیف نداره؟'),
+        (2, 'آیا بستنی رژیمی هم دارید؟');
+    ");
 
     // categories
     $pdo->exec("
@@ -39,6 +49,11 @@ try {
             category_id INT AUTO_INCREMENT PRIMARY KEY,
             category_name NVARCHAR(50)
         );
+    ");
+    $pdo->exec("
+        INSERT INTO categories (category_name) VALUES
+        ('بستنی سنتی'),
+        ('بستنی میوه‌ای');
     ");
 
     // products
@@ -53,6 +68,11 @@ try {
             FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
         );
     ");
+    $pdo->exec("
+        INSERT INTO products (category_id, pname, description, price, image) VALUES
+        (1, 'بستنی زعفرانی', 'بستنی سنتی با طعم زعفران و خامه.', 40000, 'zaferani.jpg'),
+        (2, 'بستنی توت‌فرنگی', 'بستنی خوشمزه با طعم توت‌فرنگی طبیعی.', 35000, 'strawberry.jpg');
+    ");
 
     // news
     $pdo->exec("
@@ -63,6 +83,11 @@ try {
             content TEXT,
             image NVARCHAR(50)
         );
+    ");
+    $pdo->exec("
+        INSERT INTO news (title, date, content, image) VALUES
+        ('افتتاح شعبه جدید', CURDATE(), 'شعبه جدید ما در شیراز افتتاح شد!', 'news1.jpg'),
+        ('جشنواره تخفیف تابستانی', CURDATE(), 'با خرید هر سه بستنی، یکی رایگان بگیر!', 'news2.jpg');
     ");
 
     // orders
@@ -78,9 +103,14 @@ try {
             FOREIGN KEY (product_id) REFERENCES products(product_id)
         );
     ");
+    $pdo->exec("
+        INSERT INTO orders (user_id, product_id, status, order_date, address) VALUES
+        (1, 1, 1, CURDATE(), 'تهران، خیابان ولیعصر، پلاک ۱۲'),
+        (2, 2, 0, CURDATE(), 'اصفهان، میدان نقش‌جهان، کوچه ۳');
+    ");
 
-    echo "✅ جداول با موفقیت ساخته شدند.";
+    echo "✅ جداول و داده‌های نمونه برای بستنی‌فروشی با موفقیت ایجاد شدند.";
 } catch (PDOException $e) {
-    die("خطا در ساخت جداول: " . $e->getMessage());
+    die("❌ خطا در ساخت جداول یا درج داده‌ها: " . $e->getMessage());
 }
 ?>
