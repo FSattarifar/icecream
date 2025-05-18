@@ -25,18 +25,8 @@ if (
         echo "شماره تلفن نامعتبر است. شماره باید با '09' شروع شده و 11 رقم باشد.";
         exit();
     }
-
-    // اتصال به پایگاه داده
-    $link = mysqli_connect("localhost", "root", "", "jar");
-    if (mysqli_connect_errno()) {
-        echo "خطا در اتصال به پایگاه داده: " . mysqli_connect_error();
-        exit();
-    }
-
-    mysqli_query($link, "SET NAMES utf8");
-
     // ذخیره اطلاعات در پایگاه داده
-    $query = "INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `phone) VALUES (NULL, '$username', '$password', '$email', '$phone');";
+    $query = "INSERT INTO `users`(`user_id`, `username`, `password`, `email`, `phone`) VALUES (NULL, '$username', '$password', '$email', '$phone');";
     if (mysqli_query($link, $query)) {
         echo "success"; // پیام موفقیت برای پاسخ جاوااسکریپت
     } else {

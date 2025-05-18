@@ -10,13 +10,26 @@ session_start();
     <title>Login/Signup Form</title>
     <link rel="stylesheet" href="css/style_login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #passwordr.weak {
+            border: 2px solid red;
+        }
+
+        #passwordr.medium {
+            border: 2px solid orange;
+        }
+
+        #passwordr.strong {
+            border: 2px solid green;
+        }
+    </style>
 </head>
 
 <body>
     <!--ورود-->
     <div class="container">
         <div class="form-box login">
-            <form action="action_login.php" method="post" onsubmit="return false;">
+            <form action="action_login.php" method="post">
                 <h1>ورود</h1>
                 <div class="input-box">
                     <input type="text" id="username" name="username" placeholder="نام کامل" required>
@@ -28,19 +41,17 @@ session_start();
                     <i class='bx bxs-lock-alt'></i>
                     <div id="password-error" class="error" style="color: red; font-size: small;"></div>
                 </div>
-
-                <!-- بخش کپچا -->
                 <div class="input-box">
                     <input type="text" id="captcha-input" placeholder="کد کپچا" required>
                     <i class='bx bxs-shield'></i>
                     <div id="captcha-error" class="error" style="color: red; font-size: small;"></div>
                 </div>
                 <div id="captcha" class="captcha-box" onclick="refreshCaptcha()">CAPTCHA</div>
-                </br>
+                <br>
                 <button type="button" class="btn" onclick="validateCaptcha()">ورود</button>
-                </br>
-                </br>
+                <br><br>
             </form>
+
         </div>
 
 
@@ -62,22 +73,6 @@ session_start();
                     <input type="phone" placeholder="شماره تماس" id="phoner" name="phoner" required>
                     <i class='bx bxs-phone'></i>
                 </div>
-                <style>
-                    #passwordr.weak {
-                        border: 2px solid red;
-                    }
-
-                    #passwordr.medium {
-                        border: 2px solid orange;
-                    }
-
-                    #passwordr.strong {
-                        border: 2px solid green;
-                    }
-                </style>
-
-
-
 
                 <div class="input-box">
                     <input type="password" placeholder="رمز" id="passwordr" name="passwordr" required
@@ -125,62 +120,41 @@ session_start();
             captchaText = generateCaptcha();
             document.getElementById('captcha').innerText = captchaText;
         }
-
-        // بررسی کپچا
         function validateCaptcha() {
-            const userInput = document.getElementById('captcha-input').value;
-            const captchaText = document.getElementById('captcha').innerText;
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const usernameError = document.getElementById("username-error");
-            const passwordError = document.getElementById("password-error");
-            const generalError = document.getElementById("captcha-error");
-            let isValid = true;
+    const userInput = document.getElementById('captcha-input').value;
+    const captchaText = document.getElementById('captcha').innerText;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const generalError = document.getElementById("captcha-error");
 
-            // بررسی خالی بودن فیلدها
-            if (username === "") {
-                usernameError.textContent = "نام کاربری نمی‌تواند خالی باشد.";
-                isValid = false;
+    if (!userInput || !username || !password) {
+        generalError.textContent = "لطفاً تمامی فیلدها را پر کنید.";
+        return;
+    }
+
+    if (userInput !== captchaText) {
+        generalError.textContent = "کپچا اشتباه است، لطفاً دوباره تلاش کنید.";
+        return;
+    }
+
+    // ارسال اطلاعات به `action_login.php` با AJAX
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "action_login.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            if (xhr.responseText === "success") {
+                window.location.replace("index.php"); // هدایت به صفحه اصلی
             } else {
-                usernameError.textContent = "";
-            }
-
-            if (password === "") {
-                passwordError.textContent = "رمز عبور نمی‌تواند خالی باشد.";
-                isValid = false;
-            } else {
-                passwordError.textContent = "";
-            }
-
-            if (userInput !== captchaText) {
-                generalError.textContent = "کپچا اشتباه است، لطفاً دوباره تلاش کنید.";
-                isValid = false;
-            } else {
-                generalError.textContent = "";
-            }
-
-            if (isValid) {
-                // ارسال اطلاعات به سرور با AJAX
-                const xhr = new XMLHttpRequest();
-                xhr.open("POST", "action_login.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        if (xhr.responseText === "admin") {
-                            // هدایت به صفحه ادمین
-                            window.location.replace("admin_index.php");
-                        } else if (xhr.responseText === "user") {
-                            // هدایت به صفحه اصلی کاربران
-                            window.location.replace("index.php");
-                        } else {
-                            // نمایش پیام خطا در صورت عدم موفقیت
-                            generalError.textContent = "نام کاربری یا کلمه عبور اشتباه است.";
-                        }
-                    }
-                };
-                xhr.send(`username=${username}&password=${password}`);
+                generalError.textContent = xhr.responseText; // نمایش پیام خطا در فرم ورود
             }
         }
+    };
+    xhr.send(`username=${username}&password=${password}`);
+}
+
+
+
 
         //ثبت نام
         function submitRegister() {
