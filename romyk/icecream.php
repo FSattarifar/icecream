@@ -1,94 +1,123 @@
 <?php
 include("header.php");
-?>
-    <!-- header section end -->
-    <!-- cream sectuion start -->
-    <div class="cream_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="cream_taital">Our Featured Ice Cream</h1>
-                    <p class="cream_text">tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
-            </div>
-            <div class="cream_section_2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-1.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-2.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-1.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cream_section_2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-3.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-4.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="cream_box">
-                            <div class="cream_img"><img src="images/img-5.png"></div>
-                            <div class="price_text">$10</div>
-                            <h6 class="strawberry_text">Strawberry Ice Cream</h6>
-                            <div class="cart_bt"><a href="#">Add To Cart</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="seemore_bt"><a href="#">See More</a></div>
-        </div>
-    </div>
-    <!-- cream sectuion end -->
-    <!-- copyright section start -->
-    <div class="copyright_section margin_top90">
-        <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html
-                    Templates</a></p>
-        </div>
-    </div>
-    <!-- copyright section end -->
-    <!-- Javascript files-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/plugin.js"></script>
-    <!-- sidebar -->
-    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="js/custom.js"></script>
-    <!-- javascript -->
-</body>
+include("db.php");
 
-</html>
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
+
+if ($category_id > 0) {
+    $stmt = $pdo->prepare("SELECT DISTINCT * FROM products WHERE category_id = :category_id");
+    $stmt->execute(['category_id' => $category_id]);
+} else {
+    $stmt = $pdo->query("SELECT DISTINCT * FROM products");
+}
+
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- استایل‌ها -->
+<style>
+    .section-title-wrapper {
+        text-align: right;
+        margin-bottom: 30px;
+    }
+
+    .section-title h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .section-title h1::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 160px; /* عرض خط صورتی */
+        height: 4px;
+        background-color: pink;
+        border-radius: 2px;
+    }
+
+    .cream_subtext {
+        text-align: right;
+        margin-top: 12px;
+        font-size: 16px;
+        color: #555;
+        padding-right: 2px;
+    }
+
+    .cream_img img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background-color: #f9f9f9;
+        border-radius: 6px;
+    }
+
+    .cream_box {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .cream_section .row {
+        margin-bottom: 20px;
+    }
+</style>
+
+<!-- نمایش محصولات -->
+<div class="cream_section layout_padding" dir="rtl">
+    <div class="container">
+        <!-- تیتر بخش -->
+        <div class="section-title-wrapper">
+            <div class="section-title">
+                <h1>محصولات ما</h1>
+            </div>
+            <p class="cream_subtext">نمایش محصولات دسته‌بندی شده</p>
+        </div>
+
+        <!-- لیست محصولات -->
+        <div class="cream_section_2">
+            <?php
+            $counter = 0;
+            foreach ($products as $row) {
+                if ($counter % 3 == 0) {
+                    echo '<div class="row mb-4">';
+                }
+            ?>
+                <div class="col-md-4">
+                    <div class="cream_box">
+                        <div class="cream_img">
+                            <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['pname']); ?>">
+                        </div>
+                        <div class="price_text mt-2" style="font-size: 14px; color: #333;">
+                            <?php echo number_format($row['price']); ?> تومان
+                        </div>
+                        <h6 class="strawberry_text"><?php echo htmlspecialchars($row['pname']); ?></h6>
+                        <div class="description" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center;">
+                            <p class="cream_text"><?php echo htmlspecialchars($row['description']); ?></p>
+                        </div>
+                        <div class="cart_bt"><a href="#">افزودن به سبد</a></div>
+                    </div>
+                </div>
+            <?php
+                $counter++;
+                if ($counter % 3 == 0) {
+                    echo '</div>';
+                }
+            }
+            if ($counter % 3 != 0) {
+                echo '</div>';
+            }
+            ?>
+        </div>
+    </div>
+</div>
