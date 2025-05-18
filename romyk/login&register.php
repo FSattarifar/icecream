@@ -37,11 +37,6 @@
                 <button type="button" class="btn" onclick="validateCaptcha()">ورود</button>
                 </br>
                 </br>
-
-                <!-- 
-                <div class="forgot-link">
-                    <a href="#">Forgot Password?</a>
-                </div> -->
             </form>
         </div>
 
