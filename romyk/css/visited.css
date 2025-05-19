@@ -1,0 +1,96 @@
+
+hr {
+    
+    height: 700px;
+    background-color: #1c60c1;
+}
+
+
+        .container1 {
+            text-align: center;
+            color: #1f2937;
+            padding: 40px;
+        }
+
+        .title1 {
+            font-size: 10rem;
+            font-weight: 700;
+            color: #1c60c1;
+            margin-bottom: 40px;
+        }
+
+        .stats1 {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item1 {
+            background: linear-gradient(145deg, #ffffff, #e6effa);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #dbeafe;
+            min-width: 160px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item:hover1 {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item::before1 {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .stat-item:hover::before1 {
+            left: 100%;
+        }
+
+        .stat-icon1 {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            fill: #3b82f6;
+        }
+
+        .stat-number1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .counting1 {
+            animation: scaleCount 0.2s ease-in-out;
+        }
+
+        @keyframes scaleCount {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .stat-label1 {
+            font-size: 1rem;
+            color: #6b7280;
+        }
