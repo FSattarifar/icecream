@@ -1,3 +1,115 @@
+<style>
+    /* فونت و استایل کلی صفحه */
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-color: #fff8f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  direction: rtl; /* راست‌چین */
+}
+
+/* محتوای اصلی در یک کادر وسط‌چین */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+/* هر آیتم سبد خرید */
+.cart-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #CCCCCC;
+  padding: 15px 0;
+  flex-direction: row-reverse; /* راست به چپ */
+  
+}
+
+.cart-item img {
+  width: 125px;
+  height: auto;
+  margin-right: 20px; /* به جای margin-left */
+  border-radius: 12px;
+  border: 2px solid #CCCCCC;
+  padding: 15px;
+}
+
+.item-details {
+  flex: 1;
+  text-align: right;
+  
+}
+
+.item-details h3 {
+  margin: 0 0 5px;
+  color: #c94f7c;
+  font-weight: bold;
+}
+
+.item-details p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+/* دکمه حذف */
+.remove-btn {
+  background-color: #d00000;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.remove-btn:hover {
+  background-color: #d00000;
+}
+
+/* جمع کل و دکمه‌ها */
+.cart-total {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cart-actions {
+  margin-top: 15px;
+}
+
+.cart-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
+.checkout-btn {
+  background-color: #FC95C4;
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+.checkout-btn:hover {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+</style>
 <?php
 include("header.php");
 ?>
@@ -10,7 +122,7 @@ include("header.php");
   <link rel="stylesheet" href="css/shopping-card-style.css">
 </head>
 <body>
-  <div class="container" >
+  <div class="container">
     <h1>🍦 سبد خرید شما</h1>
 
     <div class="cart-item">
