@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 
 <head>
     <!-- basic -->
@@ -28,6 +28,10 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+   <link rel="stylesheet" type="text/css" href="css/visited.css">
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet">
 </head>
 
 <body>
@@ -233,52 +237,105 @@
     </div>
     <!-- cream sectuion end -->
     <!-- services section start -->
-    <div class="services_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="services_taital">Our Ice Cream Services</h1>
-                    <p class="services_text">tempor incididunt ut labore et dolore magna aliqua</p>
-                </div>
+
+
+
+
+
+
+    
+ <div class="services_section layout_padding">
+     
+
+  <div class="container">
+  
+        <h1 class="title1" style="text-align: center;">آمار سایت ما</h1>
+      <hr>
+      <br>
+      <br>
+        <div class="stats1">
+            <div class="stat-item1">
+                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 14.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                </svg>
+                <span class="stat-number1" data-target="1500">0</span>
+                <div class="stat-label1">کاربر فعال</div>
             </div>
-            <div class="services_section_2">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="services_box">
-                            <h5 class="tasty_text"><span class="icon_img"><img src="images/icon-1.png"></span>Cookies
-                                Ice Cream</h5>
-                            <p class="lorem_text">commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fat </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="services_box">
-                            <h5 class="tasty_text"><span class="icon_img"><img src="images/icon-2.png"></span>Cookies
-                                Ice Cream</h5>
-                            <p class="lorem_text">commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fat </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="services_box">
-                            <h5 class="tasty_text"><span class="icon_img"><img src="images/icon-1.png"></span>Cookies
-                                Ice Cream</h5>
-                            <p class="lorem_text">commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fat </p>
-                        </div>
-                    </div>
-                </div>
+            <div class="stat-item1">
+                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V6h8v2z" />
+                </svg>
+                <span class="stat-number1" data-target="3200">0</span>
+                <div class="stat-label1">بازدید روزانه</div>
             </div>
-            <div class="seemore_bt"><a href="#">Read More</a></div>
+            <div class="stat-item1">
+                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                <span class="stat-number1" data-target="500">0</span>
+                <div class="stat-label1">پروژه موفق</div>
+            </div>
         </div>
     </div>
+ </div>
+
+
+<script>
+        const counters = document.querySelectorAll('.stat-number1');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const duration = 3000; // مدت زمان انیمیشن (3 ثانیه)
+                    const increment = target / (duration / 50); // افزایش در هر فریم (هر 50 میلی‌ثانیه)
+
+                    const updateCounter = () => {
+                        if (count < target) {
+                            count += increment;
+                            if (count > target) count = target;
+                            counter.innerText = Math.floor(count).toLocaleString('fa-IR');
+                            counter.classList.add('counting');
+                            setTimeout(updateCounter, 50);
+                        } else {
+                            counter.innerText = target.toLocaleString('fa-IR');
+                        }
+                    };
+                    updateCounter();
+                });
+            }, 100);
+        });
+    </script>
+
+
     <!-- services section end -->
     <!-- testimonial section start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="testimonial_section layout_padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="testimonial_taital">Testimonial</h1>
+                    <h1 class="testimonial_taital">اخبار</h1>
                 </div>
             </div>
             <div class="testimonial_section_2">
@@ -287,32 +344,49 @@
                         <div class="testimonial_box">
                             <div id="main_slider" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
+
+
+
                                     <div class="carousel-item active">
-                                        <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua.
-                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                       <h1 style="text-align: right; font-size: 40px;" >
+                                        طعم جدید تابستانی به منو اضافه شد! 🍦☀️
+                                       </h1>
+                                        <p class="testimonial_text"> 
+
+                                        تابستان نزدیک است و ما با یک طعم جدید و هیجان‌انگیز آماده پذیرایی از شما هستیم! بستنی انبه و نعناع، ترکیبی از طراوت و خنکی، حالا به منوی ما اضافه شده است. اگر به دنبال تجربه‌ای تازه و دلچسب هستید، حتماً این طعم ویژه را امتحان کنید. منتظر دیدار شما هستیم!
                                         </p>
-                                        <h4 class="client_name">Marri Fen</h4>
-                                        <div class="client_img"><img src="images/client-img.png"></div>
+                                        <h4 class="client_name" style="text-align: left; "> تاریخ اعلام خبر:      1404/02/3 </h4>
+                                        <div class="client_img"><img src="images/img2.jpg"  width="100" height="100"></div>
                                     </div>
+
+
+
+
+                                      
                                     <div class="carousel-item">
-                                        <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua.
-                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                          <h1 style="text-align: right; font-size: 40px;" >
+جشنواره تخفیف ویژه بستنی! 🎉🍨
+                                        </h1>
+                                        <p class="testimonial_text">خبر خوش برای دوستداران بستنی! از [تاریخ شروع] تا [تاریخ پایان]، تمامی بستنی‌های ما با ۳۰٪ تخفیف عرضه می‌شوند. این فرصت استثنایی را از دست ندهید و با دوستان خود به بستنی‌فروشی ما بیایید تا یک خاطره شیرین و خنک بسازید.
                                         </p>
-                                        <h4 class="client_name">Marri Fen</h4>
-                                        <div class="client_img"><img src="images/client-img.png"></div>
+                                        <h4 class="client_name" style="text-align: left; "> تاریخ اعلام خبر:      1403/12/23 </h4>
+                                        <div class="client_img"><img src="images/img1.jpg"  width="100" height="100"></div>
                                     </div>
+
+
+
+
+                                   
                                     <div class="carousel-item">
-                                        <p class="testimonial_text">tempor incididunt ut labore et dolore magna aliqua.
-                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                                           <h1 style="text-align: right; font-size: 40px;" >
+                                            بستنی بسازید، جایزه بگیرید! 🍧🏆
+                                       </h1>
+                                        <p class="testimonial_text">وقت آن رسیده که خلاقیت خود را نشان دهید! ما در حال برگزاری مسابقه طراحی طعم جدید بستنی هستیم. شما می‌توانید ترکیب رویایی خود را پیشنهاد دهید و در صورت انتخاب شدن، نام شما روی بستنی جدید قرار می‌گیرد!
+
+همراه با این مسابقه، برنده یک اشتراک یک‌ماهه بستنی رایگان دریافت خواهد کرد. پس عجله کنید و با ایده‌های خوشمزه‌ی خود شگفتی بیافرینید.
                                         </p>
-                                        <h4 class="client_name">Marri Fen</h4>
-                                        <div class="client_img"><img src="images/client-img.png"></div>
+                                        <h4 class="client_name" style="text-align: left; "> تاریخ اعلام خبر:      1404/01/15 </h4>
+                                        <div ><img src="images/img3.jpg"  width="300" height="300"></div>
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
@@ -328,6 +402,26 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- testimonial section end -->
     <!-- contact section start -->
     <div class="contact_section layout_padding">
