@@ -51,7 +51,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     .cream_img img {
         width: 100%;
-        height: 200px;
+        height: 250px;
         object-fit: contain;
         background-color: #f9f9f9;
         border-radius: 6px;
