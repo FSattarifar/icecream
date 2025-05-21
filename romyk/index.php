@@ -36,8 +36,8 @@ $result = mysqli_query($link, $sql);
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
 
-      <link rel="stylesheet" type="text/css" href="css/visited.css">
-   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/visited.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet">
 </head>
 
@@ -135,16 +135,16 @@ $result = mysqli_query($link, $sql);
                         <div class="col-md-6" style="direction: rtl; text-align: right;">
                             <h1 class="about_taital">درباره ما</h1>
                             <p class="about_text" style="direction: rtl; text-align: right;">
-                          یک گروه 7 نفره برای واحد توسعه نرم افزار تشکیل شد تا بر روی سایت بستنی فروشی کار کنیم.
-                          اعضای گروه : <br>
-                          صفحه ثبت نام و ورود :فاطمه ستاری فروشی<br>
-                          اخبار : ریحانه غاضی<br>
-                          محصولات :فاطمه دینکانی<br>
-                          پایگاه داده : هانیه هندی<br>
-                          طراحی سبد خرید : آیدا حیدری<br>
-                          فرانت سبد خرید : مینا طاهری <br>
-                          هدر : نازنین تیموری<br>
-                          ارتباط با ما :فائزه معتمدی
+                                یک گروه 7 نفره برای واحد توسعه نرم افزار تشکیل شد تا بر روی سایت بستنی فروشی کار کنیم.
+                                اعضای گروه : <br>
+                                صفحه ثبت نام و ورود :فاطمه ستاری فروشی<br>
+                                اخبار : ریحانه غاضی<br>
+                                محصولات :فاطمه دینکانی<br>
+                                پایگاه داده : هانیه هندی<br>
+                                طراحی سبد خرید : آیدا حیدری<br>
+                                فرانت سبد خرید : مینا طاهری <br>
+                                هدر : نازنین تیموری<br>
+                                ارتباط با ما :فائزه معتمدی
                             </p>
                             <div class="read_bt_1" style="direction: rtl; text-align: right;">
                                 <a href="#">اطلاعات بیشتر</a>
@@ -225,98 +225,6 @@ $result = mysqli_query($link, $sql);
             </div>
             <!-- cream sectuion end -->
             <!-- services section start -->
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <div class="services_section layout_padding">
-     
-
-  <div class="container">
-  
-        <h1 class="title1" style="text-align: center;">آمار سایت ما</h1>
-      <hr>
-      <br>
-      <br>
-        <div class="stats1">
-            <div class="stat-item1">
-                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 14.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
-                </svg>
-                <span class="stat-number1" data-target="1500">0</span>
-                <div class="stat-label1">کاربر فعال</div>
-            </div>
-            <div class="stat-item1">
-                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V6h8v2z" />
-                </svg>
-                <span class="stat-number1" data-target="3200">0</span>
-                <div class="stat-label1">بازدید روزانه</div>
-            </div>
-            <div class="stat-item1">
-                <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-                <span class="stat-number1" data-target="500">0</span>
-                <div class="stat-label1">پروژه موفق</div>
-            </div>
-        </div>
-    </div>
- </div>
-
-
-
-
-
-
-
-
-
-
-<script>
-        const counters = document.querySelectorAll('.stat-number1');
-
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    let count = 0;
-                    const duration = 3000; // مدت زمان انیمیشن (3 ثانیه)
-                    const increment = target / (duration / 50); // افزایش در هر فریم (هر 50 میلی‌ثانیه)
-
-                    const updateCounter = () => {
-                        if (count < target) {
-                            count += increment;
-                            if (count > target) count = target;
-                            counter.innerText = Math.floor(count).toLocaleString('fa-IR');
-                            counter.classList.add('counting');
-                            setTimeout(updateCounter, 50);
-                        } else {
-                            counter.innerText = target.toLocaleString('fa-IR');
-                        }
-                    };
-                    updateCounter();
-                });
-            }, 100);
-        });
-    </script>
-            <!-- services section end -->
-            <!-- testimonial section start -->
-          
 
 
 
@@ -332,157 +240,186 @@ $result = mysqli_query($link, $sql);
 
 
 
+            <div class="services_section layout_padding">
 
 
+                <div class="container">
 
-
-
-
-
-
-
-    <div class="testimonial_section layout_padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="testimonial_taital">اخبار</h1>
+                    <h1 class="title1" style="text-align: center;">آمار سایت ما</h1>
+                    <hr>
+                    <br>
+                    <br>
+                    <div class="stats1">
+                        <div class="stat-item1">
+                            <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 2c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 14.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                            </svg>
+                            <span class="stat-number1" data-target="1500">0</span>
+                            <div class="stat-label1">کاربر فعال</div>
+                        </div>
+                        <div class="stat-item1">
+                            <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 14H8v-2h8v2zm0-4H8v-2h8v2zm0-4H8V6h8v2z" />
+                            </svg>
+                            <span class="stat-number1" data-target="3200">0</span>
+                            <div class="stat-label1">بازدید روزانه</div>
+                        </div>
+                        <div class="stat-item1">
+                            <svg class="stat-icon1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                            <span class="stat-number1" data-target="500">0</span>
+                            <div class="stat-label1">پروژه موفق</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial_section_2">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="testimonial_box">
-                            <div id="main_slider" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
 
 
-<?php
- // اتصال به پایگاه داده
-   
-$sql2 = "SELECT title,date , content, image FROM news WHERE news_id = 1";
-$result2 = mysqli_query($link, $sql2);
 
-if ($result2) {
-    // اگر رکوردی وجود داشته باشه
-    if (mysqli_num_rows($result2) > 0) {
-        while ($row = mysqli_fetch_assoc($result2)) {
-          
-      
-?>
-                                    <div class="carousel-item active">
-                                       <h1 style="text-align: right; font-size: 40px;" ><?=  $row['title']  ?></h1>
-                                       
-                                        <p class="testimonial_text" style="font-size: 20px;"> 
-                                      <?=      $row['content']  ?>
-                                        </p>
-                                        <h4 class="client_name" style="text-align: left; "> <?=     $row['date']  ?> : تاریخ اعلام خبر       </h4>
-                                        <div class="client_img"><img src="images/<?=      $row['image']  ?>"  width="200" height="100"></div>
+
+
+
+
+
+
+
+            <script>
+                const counters = document.querySelectorAll('.stat-number1');
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            let count = 0;
+                            const duration = 3000; // مدت زمان انیمیشن (3 ثانیه)
+                            const increment = target / (duration / 50); // افزایش در هر فریم (هر 50 میلی‌ثانیه)
+
+                            const updateCounter = () => {
+                                if (count < target) {
+                                    count += increment;
+                                    if (count > target) count = target;
+                                    counter.innerText = Math.floor(count).toLocaleString('fa-IR');
+                                    counter.classList.add('counting');
+                                    setTimeout(updateCounter, 50);
+                                } else {
+                                    counter.innerText = target.toLocaleString('fa-IR');
+                                }
+                            };
+                            updateCounter();
+                        });
+                    }, 100);
+                });
+            </script>
+            <!-- services section end -->
+            <!-- testimonial section start -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="testimonial_section layout_padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="testimonial_taital">اخبار</h1>
+                        </div>
+                    </div>
+                    <div class="testimonial_section_2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="testimonial_box">
+                                    <div id="main_slider" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+
+
+                                            <?php
+                                            // اتصال به پایگاه داده
+                                            
+                                            $sql2 = "SELECT title,date , content, image FROM news WHERE news_id = 1";
+                                            $result2 = mysqli_query($link, $sql2);
+
+                                            if ($result2) {
+                                                // اگر رکوردی وجود داشته باشه
+                                                if (mysqli_num_rows($result2) > 0) {
+                                                    while ($row = mysqli_fetch_assoc($result2)) {
+
+
+                                                        ?>
+                                                        <div class="carousel-item active">
+                                                            <h1 style="text-align: right; font-size: 40px;"><?= $row['title'] ?>
+                                                            </h1>
+
+                                                            <p class="testimonial_text" style="font-size: 20px;">
+                                                                <?= $row['content'] ?>
+                                                            </p>
+                                                            <h4 class="client_name" style="text-align: left; ">
+                                                                <?= $row['date'] ?> : تاریخ اعلام خبر </h4>
+                                                            <div class="client_img"><img src="images/<?= $row['image'] ?>"
+                                                                    width="200" height="100"></div>
+                                                        </div>
+
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    echo "هیچ رکوردی پیدا نشد.";
+                                                }
+                                            } else {
+                                                echo "خطا در اجرای کوئری: " . mysqli_error($link);
+                                            }
+                                            ?>
+
+
+                                            <br>
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+                                        <a class="carousel-control-prev" href="#main_slider" role="button"
+                                            data-slide="prev">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                        <a class="carousel-control-next" href="#main_slider" role="button"
+                                            data-slide="next">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
                                     </div>
-
-<?php
-  }
-    } else {
-        echo "هیچ رکوردی پیدا نشد.";
-    }
-} else {
-    echo "خطا در اجرای کوئری: " . mysqli_error($link);
-}
-?>
-                                      
-
-<br>
-
-                                      <?php
- // اتصال به پایگاه داده
-   
-$sql3 = "SELECT title,date , content, image FROM news WHERE news_id = 2";
-$result3= mysqli_query($link, $sql3);
-
-if ($result3) {
-    // اگر رکوردی وجود داشته باشه
-    if (mysqli_num_rows($result3) > 0) {
-        while ($row2 = mysqli_fetch_assoc($result3)) {
-          
-      
-?>
-                                       <div class="carousel-item">
-                                       <h1 style="text-align: right; font-size: 40px;" ><?=  $row2['title']  ?></h1>
-                                       
-                                        <p class="testimonial_text" style="font-size: 20px;"> 
-                                      <?=      $row2['content']  ?>
-                                        </p>
-                                        <h4 class="client_name" style="text-align: left; "> <?=     $row2['date']  ?> : تاریخ اعلام خبر       </h4>
-                                        <div class="client_img"><img src="images/<?=      $row2['image']  ?>"  width="130" height="100"></div>
-                                    </div>
-<?php
-  }
-    } else {
-        echo "هیچ رکوردی پیدا نشد.";
-    }
-} else {
-    echo "خطا در اجرای کوئری: " . mysqli_error($link);
-}
-?>
-
-
-<br>
-
-                                                                 <?php
- // اتصال به پایگاه داده
-   
-$sql4 = "SELECT title,date , content, image FROM news WHERE news_id = 3";
-$result4 = mysqli_query($link, $sql4);
-
-if ($result4) {
-    // اگر رکوردی وجود داشته باشه
-    if (mysqli_num_rows($result4) > 0) {
-        while ($row4 = mysqli_fetch_assoc($result4)) {
-          
-      
-?> 
-                                   
-    <div class="carousel-item">
-                                       <h1 style="text-align: right; font-size: 40px;" ><?=  $row4['title']  ?></h1>
-                                       
-                                        <p class="testimonial_text" style="font-size: 20px;"> 
-                                      <?=      $row4['content']  ?>
-                                        </p>
-                                        <h4 class="client_name" style="text-align: left; "> <?=     $row4['date']  ?> : تاریخ اعلام خبر       </h4>
-                                        <div class="client_img"><img src="images/<?=      $row4['image']  ?>"  width="200" height="100"></div>
-                                    </div>
-
-
-<?php
-  }
-    } else {
-        echo "هیچ رکوردی پیدا نشد.";
-    }
-} else {
-    echo "خطا در اجرای کوئری: " . mysqli_error($link);
-}
-?>
-
-
-
-
-
-
-
-
                                 </div>
-                                <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
 
 
