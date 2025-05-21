@@ -391,19 +391,7 @@ $result = mysqli_query($link, $sql);
                                                 echo "خطا در اجرای کوئری: " . mysqli_error($link);
                                             }
                                             ?>
-
-
                                             <br>
-
-
-
-
-
-
-
-
-
-
                                         </div>
                                         <a class="carousel-control-prev" href="#main_slider" role="button"
                                             data-slide="prev">
