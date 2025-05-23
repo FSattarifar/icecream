@@ -87,7 +87,7 @@ try {
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
-                     class="login_bt">
+                   <div class="login_bt">
                             <?php if (isset($_SESSION['username'])): ?>
                                 <span style="margin-left: 10px; color: white;">
                                     <?php echo htmlspecialchars($_SESSION['username']); ?>
