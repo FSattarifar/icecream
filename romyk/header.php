@@ -1,8 +1,5 @@
-
 <?php
-
-session_start();
-include("db.php");
+require_once 'db.php'; // فایل اتصال که قبلاً ساختیم
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,36 +59,29 @@ include("db.php");
                      </li>
 
                      <li class="nav-item">
-                        <a class="nav-link" href="icecream.php">بستنی</a>
-                        <ul class="submenu">
-   <?php
-        // اتصال به پایگاه داده
-        $link = mysqli_connect("localhost", "root", "", "janat_db");
-        if (mysqli_connect_errno()) {
-            die("خطا در اتصال به پایگاه داده: " . mysqli_connect_error());
-        }
-        mysqli_query($link, "SET NAMES utf8");
+    <a class="nav-link" href="icecream.php">بستنی</a>
+    <ul class="submenu">
+        <!-- آیتم‌های ثابت -->
+        <li><a href="#">شکلاتی</a></li>
+        <li><a href="#">وانیلی</a></li>
+        <li><a href="#">توت فرنگی</a></li>
 
-        // دریافت دسته‌بندی‌ها از پایگاه داده
-        $query = "SELECT * FROM catagory";
-        $result = mysqli_query($link, $query);
-
-        // حلقه برای ایجاد آیتم‌های منو
-        while ($row = mysqli_fetch_array($result)) {
-            $catagory_id = $row['catagory_id'];
-            $catagory_name = $row['catagory_name'];
-            ?>
-            <li>
-                <a class="dropdown-item nav-link" style="direction: rtl; background-color: inherit; text-align: right;"
-                   href="gallery.php?id=<?= $catagory_id ?>">
-                    <?= htmlspecialchars($catagory_name) ?>
-                </a>
-            </li>
-            <?php
+        <!-- آیتم‌های داینامیک -->
+        <?php
+        try {
+            $stmt = $pdo->query("SELECT category_id, category_name FROM categories");
+            while ($row = $stmt->fetch()) {
+                echo '<li><a href="icecream.php?cat=' . $row['category_id'] . '">' . htmlspecialchars($row['category_name']) . '</a></li>';
+            }
+        } catch (PDOException $e) {
+            echo '<li>خطا در بارگذاری دسته‌ها</li>';
         }
         ?>
+    </ul>
+</li>
+ 
 
-                        </ul>
+                        
 
                      </li>
                      
