@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db.php';
 try {
     $stmt = $pdo->query("SELECT * FROM categories");
@@ -86,11 +87,15 @@ try {
                      </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
-                     <div class="login_bt">
-                    
-                  
-
-                  <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                     class="login_bt">
+                            <?php if (isset($_SESSION['username'])): ?>
+                                <span style="margin-left: 10px; color: white;">
+                                    <?php echo htmlspecialchars($_SESSION['username']); ?>
+                                </span>
+                                <a href="#" style="color: red; margin-left: 10px;">خروج</a>
+                            <?php else: ?>
+                                <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <?php endif; ?>
                      <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                      </div>
                     </form>
