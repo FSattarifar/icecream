@@ -55,10 +55,18 @@
                      <li class="nav-item">
                         <a class="nav-link" href="icecream.php">بستنی</a>
                         <ul class="submenu">
-                         <li><a href="chocolate.php">شکلاتی</a></li>
-                         <li><a href="vanilla.php">وانیلی</a></li>
-                        <li><a href="strawberry.php">توت فرنگی</a></li>
-<                        </ul>
+                         <li><a href="#">شکلاتی</a></li>
+                         <li><a href="#">وانیلی</a></li>
+                        <li><a href="#">توت فرنگی</a></li>
+                                                                     $stmt = $pdo->prepare("INSERT INTO categories (category_name) VALUES (?)");
+$stmt->execute(['بستنی شکلاتی']);
+
+$stmt = $pdo->prepare("UPDATE categories SET category_name = ? WHERE category_id = ?");
+$stmt->execute(['بستنی ژلاتو', 1]);
+
+$stmt = $pdo->query("SELECT * FROM categories");
+$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                       </ul>
                      </li>
                      
                      <li class="nav-item active">
