@@ -79,7 +79,7 @@ try {
 
                         
 
-                     </li>
+                     
                      
                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">خانه</a>

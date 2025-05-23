@@ -63,8 +63,7 @@ try {
                      </li>
 
                     
-
-                     <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="icecream.php">بستنی</a>
     <ul class="submenu">
         <?php foreach ($categories as $cat): ?>
@@ -76,7 +75,9 @@ try {
         <?php endforeach; ?>
     </ul>
 </li>
-                     
+ 
+
+                      
                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">خانه</a>
                      </li>
