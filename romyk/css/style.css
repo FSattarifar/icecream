@@ -293,15 +293,6 @@ button {
 }
 
 
-.fa.fa-search.form-control-feedback {
-    font-size: 18px;
-    color: #222222;
-}
-
-.fa.fa-search.form-control-feedback:hover {
-    font-size: 18px;
-    color: #fc95c4;
-}
 /* header section end */
 /* menu */
 .nav-item {

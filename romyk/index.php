@@ -69,9 +69,6 @@
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
-                   
-                  </div>
-
                   <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
                      <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                      </div>
