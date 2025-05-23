@@ -1,5 +1,5 @@
 <?php
-$host = 'localhost';
+$host = 'localhost:8080';
 $dbname = 'project_db';
 $username = 'root';
 $password = ''; // برای XAMPP معمولاً خالیه
