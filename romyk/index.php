@@ -1,6 +1,11 @@
 <?php
 include 'db.php';
-
+try {
+    $stmt = $pdo->query("SELECT * FROM categories");
+    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $categories = []; // اگه خطا داد، یه آرایه خالی بده که foreach خطا نده
+}
 ?>
 
 <!DOCTYPE html>
