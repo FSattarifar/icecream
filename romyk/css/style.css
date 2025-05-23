@@ -386,11 +386,11 @@ button {
 .about_taital::after {
     position: absolute;
     content: '';
-    width: 80px;
+    width: 200px;
     height: 6px;
     background-color: #ffd6e1;
     bottom: 20px;
-    right: 0px;
+    left: 0px;
     border-radius: 4px;
 }
 
