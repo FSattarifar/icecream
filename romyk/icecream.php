@@ -1,6 +1,20 @@
 <?php
 include("header.php");
 ?>
+<?php
+require_once 'db.php';
+
+if (isset($_GET['cat'])) {
+    $cat_id = intval($_GET['cat']);
+    $stmt = $pdo->prepare("SELECT * FROM products WHERE category_id = ?");
+    $stmt->execute([$cat_id]);
+    $products = $stmt->fetchAll();
+} else {
+    $stmt = $pdo->query("SELECT * FROM products");
+    $products = $stmt->fetchAll();
+}
+
+// حالا $products رو نمایش بده
     <!-- header section end -->
     <!-- cream sectuion start -->
     <div class="cream_section layout_padding">
