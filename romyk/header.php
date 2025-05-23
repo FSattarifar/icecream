@@ -61,10 +61,22 @@ session_start();
                      <li class="nav-item">
                         <a class="nav-link" href="icecream.php">بستنی</a>
                         <ul class="submenu">
-                         <li><a href="#">شکلاتی</a></li>
-                         <li><a href="#">وانیلی</a></li>
-                        <li><a href="#">توت فرنگی</a></li>
-  
+    <!-- آیتم‌های ثابت -->
+    <li><a href="#">شکلاتی</a></li>
+    <li><a href="#">وانیلی</a></li>
+    <li><a href="#">توت فرنگی</a></li>
+
+    <!-- آیتم‌های دینامیکی از پایگاه داده -->
+    <?php
+    $stmt = $pdo->query("SELECT * FROM categories");
+    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($categories as $category) {
+        echo '<li><a href="#">' . htmlspecialchars($category['name']) . '</a></li>';
+    }
+    ?>
+</ul>
+
                         </ul>
 
                      </li>
@@ -76,7 +88,7 @@ session_start();
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
                     
-                  </div>
+                  
 
                   <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
                      <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
