@@ -1,6 +1,9 @@
 
+<?php
 
-
+session_start();
+include("db.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -58,22 +61,43 @@
                         <a class="nav-link" href="services.php">سرویس ها</a>
                      </li>
 
-                     <li class="nav-item">
-                        <a class="nav-link" href="icecream.php">بستنی</a>
-                        <ul class="submenu">
-    <!-- آیتم‌های ثابت -->
-    <li><a href="#">شکلاتی</a></li>
-    <li><a href="#">وانیلی</a></li>
-    <li><a href="#">توت فرنگی</a></li>
+               <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="clientDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        دستگاه‌ها
+    </a>
+    <ul class="dropdown-menu" style="background-color: #0e0c06;" aria-labelledby="clientDropdown">
+        <?php
+        // اتصال به پایگاه داده
+        $link = mysqli_connect("localhost", "root", "", "janat_db");
+        if (mysqli_connect_errno()) {
+            die("خطا در اتصال به پایگاه داده: " . mysqli_connect_error());
+        }
+        mysqli_query($link, "SET NAMES utf8");
 
-  
-    
-    
+        // دریافت دسته‌بندی‌ها از پایگاه داده
+        $query = "SELECT * FROM catagory";
+        $result = mysqli_query($link, $query);
+
+        // حلقه برای ایجاد آیتم‌های منو
+        while ($row = mysqli_fetch_array($result)) {
+            $catagory_id = $row['catagory_id'];
+            $catagory_name = $row['catagory_name'];
+            ?>
+            <li>
+                <a class="dropdown-item nav-link" style="direction: rtl; background-color: inherit; text-align: right;"
+                   href="gallery.php?id=<?= $catagory_id ?>">
+                    <?= htmlspecialchars($catagory_name) ?>
+                </a>
+            </li>
+            <?php
+        }
+        ?>
+    </ul>
+</li>
  
 
-                        </ul>
+                        
 
-                     </li>
                      
                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">خانه</a>
