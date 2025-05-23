@@ -66,14 +66,7 @@ session_start();
                         <li><a href="#">توت فرنگی</a></li>
   
                         </ul>
-                                              $stmt = $pdo->prepare("INSERT INTO categories (category_name) VALUES (?)");
-$stmt->execute(['بستنی شکلاتی']);
 
-$stmt = $pdo->prepare("UPDATE categories SET category_name = ? WHERE category_id = ?");
-$stmt->execute(['بستنی ژلاتو', 1]);
-
-$stmt = $pdo->query("SELECT * FROM categories");
-$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                      </li>
                      
                      <li class="nav-item active">
