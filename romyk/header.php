@@ -61,12 +61,10 @@ include("db.php");
                         <a class="nav-link" href="services.php">سرویس ها</a>
                      </li>
 
-               <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="clientDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        دستگاه‌ها
-    </a>
-    <ul class="dropdown-menu" style="background-color: #0e0c06;" aria-labelledby="clientDropdown">
-        <?php
+                     <li class="nav-item">
+                        <a class="nav-link" href="icecream.php">بستنی</a>
+                        <ul class="submenu">
+   <?php
         // اتصال به پایگاه داده
         $link = mysqli_connect("localhost", "root", "", "janat_db");
         if (mysqli_connect_errno()) {
@@ -92,12 +90,10 @@ include("db.php");
             <?php
         }
         ?>
-    </ul>
-</li>
- 
 
-                        
+                        </ul>
 
+                     </li>
                      
                      <li class="nav-item active">
                         <a class="nav-link" href="index.php">خانه</a>
