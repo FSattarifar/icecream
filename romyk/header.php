@@ -1,6 +1,4 @@
-<?php
-require_once 'db.php'; // فایل اتصال که قبلاً ساختیم
-?>
+
 <!DOCTYPE html>
 <html>
 
@@ -66,17 +64,7 @@ require_once 'db.php'; // فایل اتصال که قبلاً ساختیم
         <li><a href="#">وانیلی</a></li>
         <li><a href="#">توت فرنگی</a></li>
 
-        <!-- آیتم‌های داینامیک -->
-        <?php
-        try {
-            $stmt = $pdo->query("SELECT category_id, category_name FROM categories");
-            while ($row = $stmt->fetch()) {
-                echo '<li><a href="icecream.php?cat=' . $row['category_id'] . '">' . htmlspecialchars($row['category_name']) . '</a></li>';
-            }
-        } catch (PDOException $e) {
-            echo '<li>خطا در بارگذاری دسته‌ها</li>';
-        }
-        ?>
+       
     </ul>
 </li>
  

@@ -1,9 +1,7 @@
 <?php
 include("header.php");
 ?>
-<?php
-require_once 'db.php'; // فایل اتصال که قبلاً ساختیم
-?>
+
 
 
 
