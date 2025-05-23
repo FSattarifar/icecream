@@ -67,15 +67,9 @@ session_start();
     <li><a href="#">توت فرنگی</a></li>
 
     <!-- آیتم‌های دینامیکی از پایگاه داده -->
-    <?php
-    $stmt = $pdo->query("SELECT * FROM categories");
-    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    
 
-    foreach ($categories as $category) {
-        echo '<li><a href="#">' . htmlspecialchars($category['name']) . '</a></li>';
-    }
-    ?>
-</ul>
 
                         </ul>
 
