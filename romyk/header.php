@@ -109,6 +109,8 @@ if (isset($_SESSION['user_id'])) {
     <?php else: ?>
         <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
     <?php endif; ?>
+    </div>
+    <div>
     <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 </div>
                      <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
