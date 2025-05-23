@@ -267,7 +267,7 @@ button {
 .login_bt {
     display: flex; /* قرار دادن همه عناصر در یک خط */
     align-items: center; /* تنظیم هم‌ترازی */
-    gap: 15px; /* فاصله بین عناصر */
+    gap: 50px; /* فاصله بین عناصر */
     position: relative; /* تنظیم موقعیت برای نمایش باکس */
 }
 
