@@ -1,4 +1,9 @@
+<?php
+include 'db.php';
 
+$stmt = $pdo->query("SELECT * FROM categories");
+$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -55,16 +60,16 @@
                      <li class="nav-item">
                         <a class="nav-link" href="services.php">سرویس ها</a>
                      </li>
-
-                     <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="icecream.php">بستنی</a>
     <ul class="submenu">
-        <!-- آیتم‌های ثابت -->
-        <li><a href="#">شکلاتی</a></li>
-        <li><a href="#">وانیلی</a></li>
-        <li><a href="#">توت فرنگی</a></li>
-
-       
+        <?php foreach ($categories as $cat): ?>
+            <li>
+                <a href="category.php?id=<?php echo $cat['category_id']; ?>">
+                    <?php echo htmlspecialchars($cat['category_name']); ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </li>
  
