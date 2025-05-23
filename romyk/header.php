@@ -64,7 +64,16 @@ session_start();
                          <li><a href="chocolate.php">شکلاتی</a></li>
                          <li><a href="vanilla.php">وانیلی</a></li>
                         <li><a href="strawberry.php">توت فرنگی</a></li>
+                                                $stmt = $pdo->prepare("INSERT INTO categories (category_name) VALUES (?)");
+$stmt->execute(['بستنی شکلاتی']);
+
+$stmt = $pdo->prepare("UPDATE categories SET category_name = ? WHERE category_id = ?");
+$stmt->execute(['بستنی ژلاتو', 1]);
+
+$stmt = $pdo->query("SELECT * FROM categories");
+$categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </ul>
+
                      </li>
                      
                      <li class="nav-item active">
@@ -73,9 +82,7 @@ session_start();
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
-                        <div class="search-box">
-                     <i class="fa fa-search"></i>
-                     <input type="text" placeholder="جستجو">
+                    
                   </div>
 
                   <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>

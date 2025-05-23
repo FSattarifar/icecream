@@ -54,6 +54,11 @@
 
                      <li class="nav-item">
                         <a class="nav-link" href="icecream.php">بستنی</a>
+                        <ul class="submenu">
+                         <li><a href="chocolate.php">شکلاتی</a></li>
+                         <li><a href="vanilla.php">وانیلی</a></li>
+                        <li><a href="strawberry.php">توت فرنگی</a></li>
+<                        </ul>
                      </li>
                      
                      <li class="nav-item active">
@@ -62,9 +67,7 @@
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
                      <div class="login_bt">
-                        <div class="search-box">
-                     <i class="fa fa-search"></i>
-                     <input type="text" placeholder="جستجو">
+                   
                   </div>
 
                   <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
