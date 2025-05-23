@@ -1,6 +1,10 @@
 <?php
 session_start();
+require 'db.php'; // اینجا فایل اتصال به دیتابیس را اضافه کنید
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
