@@ -1,8 +1,4 @@
-<?php
-session_start();
-require 'db.php'; // اینجا فایل اتصال به دیتابیس را اضافه کنید
 
-?>
 
 
 <!DOCTYPE html>
@@ -73,15 +69,7 @@ require 'db.php'; // اینجا فایل اتصال به دیتابیس را ا�
   
     
     
- <!-- آیتم‌های دینامیکی از پایگاه داده -->
-    <?php
-    $stmt = $pdo->query("SELECT * FROM categories");
-    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($categories as $category) {
-        echo '<li><a href="#">' . htmlspecialchars($category['name']) . '</a></li>';
-    }
-    ?>
+ 
 
                         </ul>
 
