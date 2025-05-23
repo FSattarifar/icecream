@@ -1,65 +1,83 @@
 <?php
 include("header.php");
 ?>
+
       <!-- header section end -->
       <!-- contact section start -->
       <div class="contact_section layout_padding">
-         <div class="container">
+         <div class="container"  >
             <div class="row">
                <div class="col-md-4">
-                  <div class="contact_main">
-                     <h1 class="contact_taital">Contact Us</h1>
+                  
+                  <div class="contact_main text-center"  >
+                     <h1 class="contact_taital" style="margin-left:70px;">تماس با ما</h1>
                      <form action="/action_page.php">
-                        <div class="form-group">
-                           <input type="text" class="email-bt" placeholder="Name" name="Name">
+                        <div class="form-group "  >
+                           <input  style="text-align:right" type="text" class="email-bt" placeholder="نام" name="Name">
                         </div>
                         <div class="form-group">
-                           <input type="text" class="email-bt" placeholder="Email" name="Name">
+                           <input style="text-align:right" type="text" class="email-bt"   placeholder="آدرس ایمیل" name="Name">
+                        </div>
+                        <div class="form-group" >
+                           <input style="text-align:right" type="text" class="email-bt" placeholder=" شماره تماس" name="Email">
                         </div>
                         <div class="form-group">
-                           <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
-                        </div>
-                        <div class="form-group">
-                           <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                           <textarea  style="text-align:right" class="massage-bt" placeholder="نظر شما" rows="5" id="comment" name="Massage"></textarea>
                         </div>
                      </form>
-                     <div class="main_bt"><a href="#">SEND</a></div>
+                     <div class="main_bt" style="text-align:center;margin-left:80px;box-sizing: border-box; width: 150px;"><a href="#" style="center">ارسال</a></div>
                   </div>
                </div>
-               <div class="col-md-8">
-                  <div class="location_text">
-                     <ul>
-                        <li>
-                           <a href="#">
-                           <span class="padding_left_10 active"><i class="fa fa-map-marker" aria-hidden="true"></i></span>Making this the first true</a>
-                        </li>
-                        <li>
-                           <a href="#">
-                           <span class="padding_left_10"><i class="fa fa-phone" aria-hidden="true"></i></span>Call : +01 1234567890
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                           <span class="padding_left_10"><i class="fa fa-envelope" aria-hidden="true"></i></span>Email : demo@gmail.com
-                           </a>
-                        </li>
-                     </ul>
+               <div class="col-md-8" ">
+                  <div class="location_text" >
+
+                    <ul style="list-style: none; padding: 0; direction: rtl; text-align: right; text-align:center ;margin:0px; ">
+  <li style="margin-bottom: 15px;">
+    <a href="#" style="display: inline-flex; align-items: center;">
+      <i class="fa fa-map-marker" style="margin-left: 10px; font-size: 35px;color:#dc3545;"></i>
+      آدرس: شیراز پشت ارگ کریم‌خانی
+    </a>
+  </li>
+  <br>
+  <li style="margin-bottom: 15px;">
+    <a href="#" style="display: inline-flex; align-items: center;">
+      <i class="fa fa-phone" style="margin-left: 10px; font-size: 35px;color:#00fbff;"></i>
+      تلفن تماس: 071-3262-8787
+    </a>
+  </li>
+  <br>
+  <li>
+    <a href="#" style="display: inline-flex; align-items: center;">
+      <i class="fa fa-envelope" style="margin-left: 10px; font-size: 35px;color:#ffffff;"></i>
+      ایمیل: targoli18@gmail.com
+    </a>
+  </li>
+</ul>
                   </div>
-                  <div class="mail_main">
-                     <h3 class="newsletter_text">Newsletter</h3>
-                     <div class="form-group">
-                        <textarea class="update_mail" placeholder="Enter Your Email" rows="5" id="comment" name="Enter Your Email"></textarea>
-                        <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                  <div class="mail_main" >
+                    
+                     <div class="form-group"  style="text-align:center ;margin-top: 30px;margin-bottom: 90px">
+                        <textarea class="update_mail" placeholder="لطفا ایمیل خود را وارد کنید" rows="5" id="comment" name="Enter Your Email" style="text-align:center"></textarea>
+                        <div class="subscribe_bt"><a href="#">عضو شدن</a></div>
                      </div>
                   </div>
-                  <div class="footer_social_icon">
-                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                     </ul>
-                  </div>
+                 <br>
+                  <div class="footer_social_icon" style="text-align:center ;margin-right: 180px;margin-bottom: -60px;margin-top: 80px;">
+  <ul style="display: inline-block; padding: 0; margin: 0;">
+    <li style="display: inline-block; margin: 0 5px;">
+      <a href="https://www.facebook.com/?locale=fa_IR"><i class="fa fa-facebook" ></i></a>
+    </li>
+    <li style="display: inline-block; margin: 0 5px;">
+      <a href="http://localhost:8080/icecream/romyk/contact.php"><i class="fa fa-twitter" "></i></a>
+    </li>
+    <li style="display: inline-block; margin: 0 5px;">
+      <a href="#http://localhost:8080/icecream/romyk/index.php"><i class="fa fa-linkedin"></i></a>
+    </li>
+    <li style="display: inline-block; margin: 0 5px;">
+      <a  href="https://www.instagram.com/i.golfam?igsh=MWo2b3AzajQ0dzY1dg=="><i class="fa fa-instagram" "></i></a>
+    </li>
+  </ul>
+</div>
                </div>
             </div>
          </div>
@@ -68,7 +86,7 @@ include("header.php");
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free Html Templates</a></p>
+            <p class="copyright_text">تمامی حقوق این وب سایت برای بستنی فروشی  محفوظ می‌باشد <a href="https://html.design"></a></p>
          </div>
       </div>
       <!-- copyright section end -->
@@ -82,5 +100,6 @@ include("header.php");
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
       <!-- javascript --> 
+    
    </body>
 </html>
