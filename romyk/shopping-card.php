@@ -2,7 +2,7 @@
 <style>
     /* فونت و استایل کلی صفحه */
 body {
-  font-family: 'Tahoma', sans-serif;
+  font-family: "Vazir";
   background-color: #fff8f0;
   color: #333;
   margin: 0;
