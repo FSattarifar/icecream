@@ -7,8 +7,8 @@ $password = ''; // برای XAMPP معمولاً خالیه
 
 
  // اتصال به پایگاه داده
-    $link = mysqli_connect("localhost:8080", "root", "", "project_db");
-    if (mysqli_connect_errno()) {
+ $link = mysqli_connect("localhost", "root", "", "project_db");
+     if (mysqli_connect_errno()) {
         http_response_code(500);
         exit("خطا در اتصال به پایگاه داده.");
     }
