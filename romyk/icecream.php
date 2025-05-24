@@ -5,13 +5,18 @@ include("db.php");
 $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
 
 if ($category_id > 0) {
-    $stmt = $pdo->prepare("SELECT DISTINCT * FROM products WHERE category_id = :category_id");
-    $stmt->execute(['category_id' => $category_id]);
+    $stmt = mysqli_prepare($link, "SELECT DISTINCT * FROM products WHERE category_id = ?");
+    mysqli_stmt_bind_param($stmt, "i", $category_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 } else {
-    $stmt = $pdo->query("SELECT DISTINCT * FROM products");
+    $result = mysqli_query($link, "SELECT DISTINCT * FROM products");
 }
 
-$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$products = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $products[] = $row;
+}
 ?>
 
 <!-- استایل‌ها -->

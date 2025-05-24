@@ -1,8 +1,7 @@
 <?php
 include("header.php");
-?>
-<?php
-session_start();
+
+
 
 // اتصال به پایگاه داده
 try {
@@ -82,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      <button type="submit" class="btn btn-pink  btn-block"  style="margin-left: 10px;background-color:rgb(240, 110, 153); color: white; border: none;">ارسال پیام</button>
                   </div>
                </div>
-               <div class="col-md-8" ">
+               <div class="col-md-8">
                   <div class="location_text" >
 
                     <ul style="list-style: none; padding: 0; direction: rtl; text-align: right; text-align:center ;margin:0px; ">
