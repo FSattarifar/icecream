@@ -58,7 +58,7 @@ if ($result2) {
 <body>
     <div class="header_section">
         <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="index.php"><img src="images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -91,14 +91,21 @@ if ($result2) {
                                 <?php endforeach; ?>
                             </ul>
                         </li>
-    
+
                         <li class="nav-item active">
                             <a class="nav-link" href="index.php">خانه</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
                         <div class="login_bt">
-                            <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <?php
+                            if (isset($_SESSION["username"])) {
+                                echo '<span class="username-display">' . htmlspecialchars($_SESSION["username"]) . '</span>';
+                                echo '<a href="logout.php"><i class="fa fa-user" aria-hidden="true"></i></a>';
+                            } else {
+                                echo '<a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>';
+                            }
+                            ?>
                             <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                         </div>
                     </form>
