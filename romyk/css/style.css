@@ -16,6 +16,12 @@
 @import url(nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
     box-sizing: border-box !important;
@@ -29,7 +35,7 @@ html {
 body {
     color: #666666;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Vazir";
     line-height: 1.80857;
     font-weight: normal;
     overflow-x: hidden;

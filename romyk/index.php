@@ -34,6 +34,7 @@ $result = mysqli_query($link, $sql);
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/font.css">
 
 
     <link rel="stylesheet" type="text/css" href="css/visited.css">
@@ -43,40 +44,43 @@ $result = mysqli_query($link, $sql);
 
 <body>
     <div class="header_section">
-    <div class="container">
+        <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand"href="index.html"><img src="images/logo.png"></a>
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav ml-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="icecream.html">Icecream</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="services.html">Services</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
-                     </li>
-                  </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                     <div class="login_bt"><a href="#">Login <span style="color: #222222;"><i class="fa fa-user" aria-hidden="true"></i></span></a></div>
-                     <div class="fa fa-search form-control-feedback"></div>
-                  </form>
-               </div>
+                <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="icecream.html">Icecream</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="login_bt"><a href="#">Login <span style="color: #222222;"><i class="fa fa-user"
+                                        aria-hidden="true"></i></span></a></div>
+                        <div class="fa fa-search form-control-feedback"></div>
+                    </form>
+                </div>
             </nav>
-         </div>
+        </div>
         <!-- banner section start -->
         <div class="banner_section layout_padding">
             <div class="container">
@@ -154,140 +158,143 @@ $result = mysqli_query($link, $sql);
             <!-- about sectuion end -->
             <!-- cream sectuion start -->
             <?php
-include("db.php");
-$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
+            include("db.php");
+            $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
 
-$link = mysqli_connect("localhost", "root", "", "project_db");
+            $link = mysqli_connect("localhost", "root", "", "project_db");
 
-if (!$link) {
-    die("خطا در اتصال به پایگاه داده: " . mysqli_connect_error());
-}
+            if (!$link) {
+                die("خطا در اتصال به پایگاه داده: " . mysqli_connect_error());
+            }
 
-mysqli_query($link, "SET NAMES utf8");
+            mysqli_query($link, "SET NAMES utf8");
 
-if ($category_id > 0) {
-    $stmt = mysqli_prepare($link, "SELECT DISTINCT * FROM products WHERE category_id = ?");
-    mysqli_stmt_bind_param($stmt, "i", $category_id);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-} else {
-    $result = mysqli_query($link, "SELECT DISTINCT * FROM products");
-}
+            if ($category_id > 0) {
+                $stmt = mysqli_prepare($link, "SELECT DISTINCT * FROM products WHERE category_id = ?");
+                mysqli_stmt_bind_param($stmt, "i", $category_id);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+            } else {
+                $result = mysqli_query($link, "SELECT DISTINCT * FROM products");
+            }
 
-$products = [];
-while ($row = mysqli_fetch_assoc($result)) {
-    $products[] = $row;
-}
+            $products = [];
+            while ($row = mysqli_fetch_assoc($result)) {
+                $products[] = $row;
+            }
 
-?>
-
-<!-- استایل‌ها -->
-<style>
-    .section-title-wrapper {
-        text-align: right;
-        margin-bottom: 30px;
-    }
-
-    .section-title h1 {
-        font-size: 28px;
-        font-weight: bold;
-        margin: 0;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 10px;
-    }
-
-    .section-title h1::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 160px; /* عرض خط صورتی */
-        height: 4px;
-        background-color: pink;
-        border-radius: 2px;
-    }
-
-    .cream_subtext {
-        text-align: right;
-        margin-top: 12px;
-        font-size: 16px;
-        color: #555;
-        padding-right: 2px;
-    }
-
-    .cream_img img {
-        width: 100%;
-        height: 250px;
-        object-fit: contain;
-        background-color: #f9f9f9;
-        border-radius: 6px;
-    }
-
-    .cream_box {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .cream_section .row {
-        margin-bottom: 20px;
-    }
-</style>
-
-<!-- نمایش محصولات -->
-<div class="cream_section layout_padding" dir="rtl">
-    <div class="container">
-        <!-- تیتر بخش -->
-        <div class="section-title-wrapper">
-            <div class="section-title">
-                <h1>محصولات ما</h1>
-            </div>
-            <p class="cream_subtext">نمایش محصولات دسته‌بندی شده</p>
-        </div>
-
-        <!-- لیست محصولات -->
-        <div class="cream_section_2">
-            <?php
-            $counter = 0;
-            foreach ($products as $row) {
-                if ($counter % 3 == 0) {
-                    echo '<div class="row mb-4">';
-                }
             ?>
-                <div class="col-md-4">
-                    <div class="cream_box">
-                        <div class="cream_img">
-                            <img src="images/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['pname']); ?>">
+
+            <!-- استایل‌ها -->
+            <style>
+                .section-title-wrapper {
+                    text-align: right;
+                    margin-bottom: 30px;
+                }
+
+                .section-title h1 {
+                    font-size: 28px;
+                    font-weight: bold;
+                    margin: 0;
+                    position: relative;
+                    display: inline-block;
+                    padding-bottom: 10px;
+                }
+
+                .section-title h1::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 160px;
+                    /* عرض خط صورتی */
+                    height: 4px;
+                    background-color: pink;
+                    border-radius: 2px;
+                }
+
+                .cream_subtext {
+                    text-align: right;
+                    margin-top: 12px;
+                    font-size: 16px;
+                    color: #555;
+                    padding-right: 2px;
+                }
+
+                .cream_img img {
+                    width: 100%;
+                    height: 250px;
+                    object-fit: contain;
+                    background-color: #f9f9f9;
+                    border-radius: 6px;
+                }
+
+                .cream_box {
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    margin-bottom: 20px;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%;
+                }
+
+                .cream_section .row {
+                    margin-bottom: 20px;
+                }
+            </style>
+
+            <!-- نمایش محصولات -->
+            <div class="cream_section layout_padding" dir="rtl">
+                <div class="container">
+                    <!-- تیتر بخش -->
+                    <div class="section-title-wrapper">
+                        <div class="section-title">
+                            <h1>محصولات ما</h1>
                         </div>
-                        <div class="price_text mt-2" style="font-size: 14px; color: #333;">
-                            <?php echo number_format($row['price']); ?> تومان
-                        </div>
-                        <h6 class="strawberry_text"><?php echo htmlspecialchars($row['pname']); ?></h6>
-                        <div class="description" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center;">
-                            <p class="cream_text"><?php echo htmlspecialchars($row['description']); ?></p>
-                        </div>
-                        <div class="cart_bt"><a href="#">افزودن به سبد</a></div>
+                        <p class="cream_subtext">نمایش محصولات دسته‌بندی شده</p>
+                    </div>
+
+                    <!-- لیست محصولات -->
+                    <div class="cream_section_2">
+                        <?php
+                        $counter = 0;
+                        foreach ($products as $row) {
+                            if ($counter % 3 == 0) {
+                                echo '<div class="row mb-4">';
+                            }
+                            ?>
+                            <div class="col-md-4">
+                                <div class="cream_box">
+                                    <div class="cream_img">
+                                        <img src="images/<?php echo htmlspecialchars($row['image']); ?>"
+                                            alt="<?php echo htmlspecialchars($row['pname']); ?>">
+                                    </div>
+                                    <div class="price_text mt-2" style="font-size: 14px; color: #333;">
+                                        <?php echo number_format($row['price']); ?> تومان
+                                    </div>
+                                    <h6 class="strawberry_text"><?php echo htmlspecialchars($row['pname']); ?></h6>
+                                    <div class="description"
+                                        style="flex-grow: 1; display: flex; align-items: center; justify-content: center; text-align: center;">
+                                        <p class="cream_text"><?php echo htmlspecialchars($row['description']); ?></p>
+                                    </div>
+                                    <div class="cart_bt"><a href="#">افزودن به سبد</a></div>
+                                </div>
+                            </div>
+                            <?php
+                            $counter++;
+                            if ($counter % 3 == 0) {
+                                echo '</div>';
+                            }
+                        }
+                        if ($counter % 3 != 0) {
+                            echo '</div>';
+                        }
+                        ?>
                     </div>
                 </div>
-            <?php
-                $counter++;
-                if ($counter % 3 == 0) {
-                    echo '</div>';
-                }
-            }
-            if ($counter % 3 != 0) {
-                echo '</div>';
-            }
-            ?>
-        </div>
-    </div>
-</div>
+            </div>
 
             <!-- cream sectuion end -->
             <!-- services section start -->
@@ -429,22 +436,19 @@ while ($row = mysqli_fetch_assoc($result)) {
                                                 // اگر رکوردی وجود داشته باشه
                                                 if (mysqli_num_rows($result2) > 0) {
                                                     while ($row = mysqli_fetch_assoc($result2)) {
-
-
                                                         ?>
                                                         <div class="carousel-item active">
                                                             <h1 style="text-align: right; font-size: 40px;"><?= $row['title'] ?>
                                                             </h1>
-
                                                             <p class="testimonial_text" style="font-size: 20px;">
                                                                 <?= $row['content'] ?>
                                                             </p>
                                                             <h4 class="client_name" style="text-align: left; ">
-                                                                <?= $row['date'] ?> : تاریخ اعلام خبر </h4>
+                                                                <?= $row['date'] ?> : تاریخ اعلام خبر
+                                                            </h4>
                                                             <div class="client_img"><img src="images/<?= $row['image'] ?>"
                                                                     width="200" height="100"></div>
                                                         </div>
-
                                                         <?php
                                                     }
                                                 } else {
