@@ -52,40 +52,7 @@ if ($result2) {
     <link rel="stylesheet" type="text/css" href="css/visited.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet">
-    <style>
-.nav-item {
-    position: relative;
-}
 
-.submenu {
-    display: none; /* مخفی کردن زیرمنو به طور پیش‌فرض */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 200px;
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.submenu li {
-    padding: 10px;
-}
-
-.submenu li a {
-    text-decoration: none;
-    color: black;
-    display: block;
-    padding: 10px;
-}
-
-.nav-item:hover .submenu {
-    display: block; /* نمایش زیرمنو هنگام هاور روی گزینه اصلی */
-}
-                        </style>
 </head>
 
 <body>
