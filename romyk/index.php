@@ -84,7 +84,7 @@ if ($result2) {
                             <ul class="submenu">
                                 <?php foreach ($categories as $cat): ?>
                                     <li>
-                                        <a href="category.php?id=<?php echo $cat['category_id']; ?>">
+                                        <a href="icecream.php?id=<?php echo $cat['category_id']; ?>">
                                             <?php echo htmlspecialchars($cat['category_name']); ?>
                                         </a>
                                     </li>
