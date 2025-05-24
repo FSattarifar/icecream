@@ -1,8 +1,20 @@
 <?php
 session_start();
 include("db.php");
+
+// دریافت اطلاعات محصولات
 $sql = "SELECT product_id, pname, description FROM products";
 $result = mysqli_query($link, $sql);
+
+// دریافت اطلاعات دسته‌بندی‌ها با `MySQLi`
+$sql2 = "SELECT * FROM categories";
+$result2 = mysqli_query($link, $sql2);
+
+if ($result2) {
+    $categories = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+} else {
+    $categories = []; // اگر کوئری ناموفق باشد، آرایه خالی برای جلوگیری از خطای foreach
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,13 +52,47 @@ $result = mysqli_query($link, $sql);
     <link rel="stylesheet" type="text/css" href="css/visited.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+.nav-item {
+    position: relative;
+}
+
+.submenu {
+    display: none; /* مخفی کردن زیرمنو به طور پیش‌فرض */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li {
+    padding: 10px;
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+}
+
+.nav-item:hover .submenu {
+    display: block; /* نمایش زیرمنو هنگام هاور روی گزینه اصلی */
+}
+                        </style>
 </head>
 
 <body>
     <div class="header_section">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="index.php"><img src="images/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -54,31 +100,41 @@ $result = mysqli_query($link, $sql);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">ارتباط با ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.php">درباره ما</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.php">اخبار</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.php">سرویس ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="icecream.php">بستنی</a>
+                            <ul class="submenu">
+                                <?php foreach ($categories as $cat): ?>
+                                    <li>
+                                        <a href="category.php?id=<?php echo $cat['category_id']; ?>">
+                                            <?php echo htmlspecialchars($cat['category_name']); ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
+    
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="icecream.html">Icecream</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact Us</a>
+                            <a class="nav-link" href="index.php">خانه</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
-                        <div class="login_bt"><a href="#">Login <span style="color: #222222;"><i class="fa fa-user"
-                                        aria-hidden="true"></i></span></a></div>
-                        <div class="fa fa-search form-control-feedback"></div>
+                        <div class="login_bt">
+                            <a href="login&register.php"><i class="fa fa-user" aria-hidden="true"></i></a>
+                            <a href="shopping-card.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        </div>
                     </form>
-                </div>
             </nav>
         </div>
         <!-- banner section start -->
