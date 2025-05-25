@@ -1,34 +1,39 @@
 <?php
 include("header.php");
+<<<<<<< HEAD
 
 
 
+=======
+?>
+<?php
+//session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+>>>>>>> d3c8cc9 (contact1)
 // اتصال به پایگاه داده
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=project_db;charset=utf8", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("خطا در اتصال: " . $e->getMessage());
+$conn = mysqli_connect("localhost", "root", "", "project_db");
+if (!$conn) {
+    die("خطا در اتصال به پایگاه داده: " . mysqli_connect_error());
 }
 
 // متغیرهای پیش‌فرض
 $username = '';
 $email = '';
-$phone = '';
 $message_status = '';
-
-// اگر کاربر وارد شده باشد
+$phone  = '';
 $user_id = $_SESSION['user_id'] ?? null;
 
+// اگر کاربر وارد شده باشد
 if ($user_id) {
-    $stmt = $pdo->prepare("SELECT username, email ,phone FROM users WHERE user_id = ?");
-    $stmt->execute([$user_id]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user) {
+    $sql = "SELECT username, email , phone FROM users WHERE user_id = $user_id";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
         $username = $user['username'];
         $email = $user['email'];
-        $phone = $user['phone'];
+          $phone = $user['phone'];
     }
 }
 
@@ -39,14 +44,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($message)) {
         $message_status = "پیام نمی‌تواند خالی باشد.";
     } elseif (!$user_id) {
-        $message_status = "برای ارسال پیام باید وارد حساب شوید.";
+        $message_status = "برای ارسال پیام باید وارد شوید.";
     } else {
-        $stmt = $pdo->prepare("INSERT INTO contact (user_id, message) VALUES (?, ?)");
-        $stmt->execute([$user_id, $message]);
-        $message_status = "پیام شما با موفقیت ثبت شد.";
+        $message = mysqli_real_escape_string($conn, $message);
+        $insert = "INSERT INTO contacts (user_id, message) VALUES ($user_id, '$message')";
+        if (mysqli_query($conn, $insert)) {
+            $message_status = "پیام شما با موفقیت ثبت شد.";
+        } else {
+            $message_status = "خطا در ذخیره پیام: " . mysqli_error($conn);
+        }
     }
 }
+
+mysqli_close($conn);
 ?>
+
+<!DOCTYPE html>
+<html lang="fa" >
+<head>
 
       <!-- header section end -->
       <!-- contact section start -->
@@ -54,16 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          <div class="container"  >
             <div class="row">
                <div class="col-md-4">
-                  
-          
+                  <label dir="rtl" style="margin-left:230px; color: white;" >وضعیت ارسال پیام:</label>
+           <?php if (!empty($message_status)): ?>
+                    <div style="text-align:right
+                    ;background-color:rgb(240, 110, 153); color: white;border: none;margin-bottom: 50px;" class="btn btn-pink  btn-block"><?= htmlspecialchars($message_status) ?></div>
+                   <?php endif; ?>
                   <div class="contact_main text-center"  >
                      <h1 class="contact_taital" style="margin-left:70px;">تماس با ما</h1>
                     
-    <?php if (!empty($message_status)): ?>
-        <div class="alert alert-info"><?= htmlspecialchars($message_status) ?></div>
-    <?php endif; ?>
-                     <form action="/action_page.php">
-                        <div class="form-group " method="POST" >
+                
+  
+                     <form  method="POST" >
+                        <div class="form-group " >
                            <input  style="text-align:right" type="text" class="email-bt" placeholder=" نام کاربری" name="Name"  value="<?= htmlspecialchars($username) ?>" readonly>
                         </div>
                        
@@ -74,11 +91,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="form-group" >
                            <input style="text-align:right" type="text" class="email-bt" placeholder=" شماره تماس" name="Name" value="<?= htmlspecialchars($phone) ?>" readonly>
                         </div>
+                         <div class="form-group">
+            
+            <textarea name="message" class="form-control"  style="text-align:right"rows="5" required placeholder="پیام خود را بنویسید."></textarea>
+        </div>
+
                         <div class="form-group">
-                           <textarea  style="text-align:right" class="massage-bt" placeholder="نظر شما" rows="5" id="comment" name="Massage"></textarea>
-                        </div>
+                        <button type="submit" class="btn btn-pink  btn-block"  style="margin-left: 10px;background-color:rgb(240, 110, 153); color: white; border: none;">ارسال پیام</button></div>
                      </form>
-                     <button type="submit" class="btn btn-pink  btn-block"  style="margin-left: 10px;background-color:rgb(240, 110, 153); color: white; border: none;">ارسال پیام</button>
+                     
                   </div>
                </div>
                <div class="col-md-8">
