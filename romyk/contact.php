@@ -1,17 +1,12 @@
 <?php
 include("header.php");
-<<<<<<< HEAD
 
-
-
-=======
 ?>
 <?php
 //session_start();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
->>>>>>> d3c8cc9 (contact1)
 // اتصال به پایگاه داده
 $conn = mysqli_connect("localhost", "root", "", "project_db");
 if (!$conn) {
@@ -102,7 +97,7 @@ mysqli_close($conn);
                      
                   </div>
                </div>
-               <div class="col-md-8">
+               <div class="col-md-8" ">
                   <div class="location_text" >
 
                     <ul style="list-style: none; padding: 0; direction: rtl; text-align: right; text-align:center ;margin:0px; ">
