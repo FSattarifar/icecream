@@ -328,21 +328,6 @@ if ($result2) {
 
             <!-- cream sectuion end -->
             <!-- services section start -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="services_section layout_padding">
                 <div class="container">
                     <h1 class="title1" style="text-align: center;">آمار سایت ما</h1>
@@ -377,70 +362,8 @@ if ($result2) {
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-            <script>
-                const counters = document.querySelectorAll('.stat-number1');
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    setTimeout(() => {
-                        counters.forEach(counter => {
-                            const target = +counter.getAttribute('data-target');
-                            let count = 0;
-                            const duration = 3000; // مدت زمان انیمیشن (3 ثانیه)
-                            const increment = target / (duration / 50); // افزایش در هر فریم (هر 50 میلی‌ثانیه)
-
-                            const updateCounter = () => {
-                                if (count < target) {
-                                    count += increment;
-                                    if (count > target) count = target;
-                                    counter.innerText = Math.floor(count).toLocaleString('fa-IR');
-                                    counter.classList.add('counting');
-                                    setTimeout(updateCounter, 50);
-                                } else {
-                                    counter.innerText = target.toLocaleString('fa-IR');
-                                }
-                            };
-                            updateCounter();
-                        });
-                    }, 100);
-                });
-            </script>
             <!-- services section end -->
             <!-- testimonial section start -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="testimonial_section layout_padding">
                 <div class="container">
                     <div class="row">
@@ -454,41 +377,41 @@ if ($result2) {
                                 <div class="testimonial_box">
                                     <div id="main_slider" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
-
-
                                             <?php
-                                            // اتصال به پایگاه داده
-                                            
-                                            $sql2 = "SELECT title,date , content, image FROM news WHERE news_id = 1";
-                                            $result2 = mysqli_query($link, $sql2);
+                                            // دریافت تمام اخبار از پایگاه داده به ترتیب news_id
+                                            $sql = "SELECT title, date, content, image FROM news ORDER BY news_id";
+                                            $result = mysqli_query($link, $sql);
 
-                                            if ($result2) {
-                                                // اگر رکوردی وجود داشته باشه
-                                                if (mysqli_num_rows($result2) > 0) {
-                                                    while ($row = mysqli_fetch_assoc($result2)) {
-                                                        ?>
-                                                        <div class="carousel-item active">
-                                                            <h1 style="text-align: right; font-size: 40px;"><?= $row['title'] ?>
-                                                            </h1>
-                                                            <p class="testimonial_text" style="font-size: 20px;">
-                                                                <?= $row['content'] ?>
-                                                            </p>
-                                                            <h4 class="client_name" style="text-align: left; ">
-                                                                <?= $row['date'] ?> : تاریخ اعلام خبر
-                                                            </h4>
-                                                            <div class="client_img"><img src="images/<?= $row['image'] ?>"
-                                                                    width="200" height="100"></div>
+                                            if ($result && mysqli_num_rows($result) > 0) {
+                                                $first = true; // برای تعیین active بودن اولین اسلاید
+                                            
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    ?>
+                                                    <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
+                                                        <h1 style="text-align: right; font-size: 40px;">
+                                                            <?= htmlspecialchars($row['title']) ?></h1>
+                                                        <p class="testimonial_text" style="font-size: 20px;">
+                                                            <?= nl2br(htmlspecialchars($row['content'])) ?>
+                                                        </p>
+                                                        <h4 class="client_name" style="text-align: left;">
+                                                            تاریخ اعلام خبر: <?= htmlspecialchars($row['date']) ?>
+                                                        </h4>
+                                                        <div class="client_img">
+                                                            <img src="images/<?= htmlspecialchars($row['image']) ?>" width="200"
+                                                                height="100" alt="<?= htmlspecialchars($row['title']) ?>">
                                                         </div>
-                                                        <?php
-                                                    }
-                                                } else {
-                                                    echo "هیچ رکوردی پیدا نشد.";
+                                                    </div>
+                                                    <?php
+                                                    $first = false;
                                                 }
                                             } else {
-                                                echo "خطا در اجرای کوئری: " . mysqli_error($link);
+                                                echo '<div class="carousel-item active">
+                                            <p class="testimonial_text" style="font-size: 20px; text-align: center;">
+                                                خبری برای نمایش وجود ندارد.
+                                            </p>
+                                          </div>';
                                             }
                                             ?>
-                                            <br>
                                         </div>
                                         <a class="carousel-control-prev" href="#main_slider" role="button"
                                             data-slide="prev">
@@ -505,47 +428,6 @@ if ($result2) {
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- testimonial section end -->
             <!-- contact section start -->
             <div class="contact_section layout_padding">
@@ -633,6 +515,34 @@ if ($result2) {
             <!-- sidebar -->
             <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
             <script src="js/custom.js"></script>
+            
+            <script>
+                const counters = document.querySelectorAll('.stat-number1');
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            let count = 0;
+                            const duration = 3000; // مدت زمان انیمیشن (3 ثانیه)
+                            const increment = target / (duration / 50); // افزایش در هر فریم (هر 50 میلی‌ثانیه)
+
+                            const updateCounter = () => {
+                                if (count < target) {
+                                    count += increment;
+                                    if (count > target) count = target;
+                                    counter.innerText = Math.floor(count).toLocaleString('fa-IR');
+                                    counter.classList.add('counting');
+                                    setTimeout(updateCounter, 50);
+                                } else {
+                                    counter.innerText = target.toLocaleString('fa-IR');
+                                }
+                            };
+                            updateCounter();
+                        });
+                    }, 100);
+                });
+            </script>
             <!-- javascript -->
 </body>
 
