@@ -1,10 +1,6 @@
 <?php
 include("header.php");
-
-
 include("db.php");
-$sql = "SELECT product_id, pname, description FROM products";
-$result = mysqli_query($link, $sql);
 ?>
       <!-- header section end -->
       <!-- testimonial section start -->
