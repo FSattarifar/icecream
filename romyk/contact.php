@@ -97,7 +97,7 @@ mysqli_close($conn);
                      
                   </div>
                </div>
-               <div class="col-md-8" ">
+               <div class="col-md-8" >
                   <div class="location_text" >
 
                     <ul style="list-style: none; padding: 0; direction: rtl; text-align: right; text-align:center ;margin:0px; ">
